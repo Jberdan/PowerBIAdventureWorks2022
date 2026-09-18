@@ -1,0 +1,40 @@
+relationship b5056c01-0eab-4729-a21b-0c82c2f69f93
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDate.FullDateAlternateKey
+	toColumn: LocalDateTable_1fbbdad8-5ff3-498b-aca8-ff732832cc56.Date
+
+relationship 17bbd8c8-ae58-4615-a59b-98f4cb789adc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactFinance.Date
+	toColumn: LocalDateTable_43d171ea-0d5c-4cbf-9317-9a4c459989f3.Date
+
+relationship 52be7c34-b0c5-4c02-b344-812f3f8052d6
+	fromColumn: FactFinance.AccountKey
+	toColumn: DimAccount.AccountKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 650a8c9b-2ea4-441e-821f-9d22eb9a80ca
+	fromColumn: FactFinance.OrganizationKey
+	toColumn: DimOrganization.OrganizationKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 78ba2ea7-8a51-4566-b5c4-7ced1851846e
+	fromColumn: FactFinance.DateKey
+	toColumn: DimDate.DateKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 9715d33a-2a02-4371-9b88-f0a74933ef4c
+	fromColumn: FactFinance.ScenarioKey
+	toColumn: DimScenario.ScenarioKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 15121435-ad7d-4ac0-bf7a-46a9888941ad
+	fromColumn: FactFinance.DepartmentGroupKey
+	toColumn: DimDepartmentGroup.DepartmentGroupKey
+
+	annotation PBI_IsFromSource = FS
+

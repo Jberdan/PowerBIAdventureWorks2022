@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "AdventureWorks2022_Finance"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "70abd5e4-86ca-4637-8df2-80a703275a13"
+  }
+}

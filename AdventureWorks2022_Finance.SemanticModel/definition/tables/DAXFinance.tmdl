@@ -1,0 +1,55 @@
+table DAXFinance
+	lineageTag: e1623481-0027-47a7-86a4-981de81ac5f5
+
+	measure 'Total Amount' =
+			
+			SUM ( FactFinance[Amount] )
+		lineageTag: 295fb7b4-7130-48da-a10b-47d1737bc3fe
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Debit =
+			
+			VAR BaseAmount =
+			    SUM(FactFinance[Amount])
+			RETURN
+			    IF (
+			        SELECTEDVALUE(DimAccount[Operator]) = "+",
+			        BaseAmount,
+			        0
+			    )
+		lineageTag: 31b99608-9c16-498c-96b9-1382d74fbe92
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Credit =
+			
+			VAR BaseAmount =
+			    SUM(FactFinance[Amount])
+			RETURN
+			    IF (
+			        SELECTEDVALUE(DimAccount[Operator]) = "-",
+			        BaseAmount,
+			        0
+			    )
+		lineageTag: 4b72d752-ab3a-43b4-bb44-8dc7d7b45a51
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: d45ffe60-4c6f-46de-b16a-b9cb6a9b21c9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DAXFinance = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 46c5651477704c9586649cb3f36e8d9d
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+
