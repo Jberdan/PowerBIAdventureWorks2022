@@ -11,7 +11,7 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_QueryOrder = ["DimAccount","DimCurrency","DimDate","DimDepartmentGroup","DimOrganization","DimScenario","FactFinance","DimCurrencyRate"]
 
-annotation PBI_ProTooling = ["CopilotTooling","DevMode","TMDLView_Desktop"]
+annotation PBI_ProTooling = ["CopilotTooling","DevMode","TMDLView_Desktop","DaxQueryView_Desktop"]
 
 ref table DimAccount
 ref table DimCurrency

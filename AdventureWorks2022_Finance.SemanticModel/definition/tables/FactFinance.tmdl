@@ -82,6 +82,15 @@ table FactFinance
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Exchange Rate' =
+			
+			RELATED('DimCurrencyRate'[EndOfDayRate])
+		formatString: 0.00
+		lineageTag: 7e95191d-88c3-47d2-8c9e-5cee88d69129
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactFinance = m
 		mode: import
 		source =

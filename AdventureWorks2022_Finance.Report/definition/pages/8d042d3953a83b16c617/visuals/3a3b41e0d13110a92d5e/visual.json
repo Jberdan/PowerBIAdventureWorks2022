@@ -62,62 +62,6 @@
               },
               "queryRef": "MeasuresFinance.Total Amount",
               "nativeQueryRef": "Total Amount"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MeasuresFinance"
-                    }
-                  },
-                  "Property": "Total Transaction Count"
-                }
-              },
-              "queryRef": "MeasuresFinance.Total Transaction Count",
-              "nativeQueryRef": "Total Transaction Count"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MeasuresFinance"
-                    }
-                  },
-                  "Property": "Budget Amount"
-                }
-              },
-              "queryRef": "MeasuresFinance.Budget Amount",
-              "nativeQueryRef": "Budget Amount"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MeasuresFinance"
-                    }
-                  },
-                  "Property": "Actual Amount"
-                }
-              },
-              "queryRef": "MeasuresFinance.Actual Amount",
-              "nativeQueryRef": "Actual Amount"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MeasuresFinance"
-                    }
-                  },
-                  "Property": "Forecast Amount"
-                }
-              },
-              "queryRef": "MeasuresFinance.Forecast Amount",
-              "nativeQueryRef": "Forecast Amount"
             }
           ]
         }
@@ -173,5 +117,51 @@
       }
     ],
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1fd7bf50218c3ad15a39",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MeasuresFinance"
+              }
+            },
+            "Property": "Total Amount"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f9da253c29eb63808623",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimOrganization"
+              }
+            },
+            "Property": "OrganizationName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8dfce348005947600e9c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCurrency"
+              }
+            },
+            "Property": "CurrencyName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
