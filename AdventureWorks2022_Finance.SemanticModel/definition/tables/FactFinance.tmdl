@@ -65,6 +65,23 @@ table FactFinance
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column CurrencyKey =
+			
+			RELATED('DimOrganization'[CurrencyKey])
+		formatString: 0
+		lineageTag: ffb8b3d0-abdd-4fd5-82d3-22b07162404e
+		summarizeBy: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExchangeKey =
+			
+			[CurrencyKey] & [DateKey]
+		lineageTag: d7488019-93f8-45b0-9c85-4588b01fc282
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactFinance = m
 		mode: import
 		source =

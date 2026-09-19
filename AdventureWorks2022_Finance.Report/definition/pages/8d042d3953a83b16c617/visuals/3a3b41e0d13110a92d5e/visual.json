@@ -6,7 +6,7 @@
     "y": 127.44588744588744,
     "z": 0,
     "height": 771.60173160173156,
-    "width": 1000.1731601731601,
+    "width": 817.31601731601722,
     "tabOrder": 0
   },
   "visual": {
@@ -43,7 +43,7 @@
               },
               "queryRef": "DimCurrency.CurrencyName",
               "nativeQueryRef": "CurrencyName",
-              "active": false
+              "active": true
             }
           ]
         },
@@ -156,7 +156,20 @@
             "isPinned": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Australia'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
       }
     ],
     "drillFilterOtherVisuals": true

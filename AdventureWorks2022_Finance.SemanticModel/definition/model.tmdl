@@ -9,7 +9,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["DimAccount","DimCurrency","DimDate","DimDepartmentGroup","DimOrganization","DimScenario","FactFinance"]
+annotation PBI_QueryOrder = ["DimAccount","DimCurrency","DimDate","DimDepartmentGroup","DimOrganization","DimScenario","FactFinance","DimCurrencyRate"]
 
 annotation PBI_ProTooling = ["CopilotTooling","DevMode","TMDLView_Desktop"]
 
@@ -23,6 +23,7 @@ ref table DimOrganization
 ref table DimScenario
 ref table FactFinance
 ref table MeasuresFinance
+ref table DimCurrencyRate
 
 ref cultureInfo en-US
 

@@ -39,3 +39,7 @@ relationship 4df3870e-b8e9-4c85-8fc5-b680be35e3b0
 
 	annotation PBI_IsFromSource = FS
 
+relationship 2adde12f-cf49-de94-26c9-a330a9a6af7c
+	fromColumn: FactFinance.ExchangeKey
+	toColumn: DimCurrencyRate.ExchangeKey
+

@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 143.15521972574925,
-        "y": 75
+        "x": 0,
+        "y": 0
       },
       "nodes": [
         {
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 445.83513579599673,
-            "y": 814.79850518924377
+            "x": 345.83513579599673,
+            "y": 856.79850518924377
           },
           "nodeIndex": "DimCurrency",
           "nodeLineageTag": "82c2b531-2822-4279-8584-548be1d81738",
@@ -36,7 +36,7 @@
         },
         {
           "location": {
-            "x": 348.05692726947473,
+            "x": 347.05692726947473,
             "y": 0
           },
           "nodeIndex": "DimDate",
@@ -62,8 +62,8 @@
         },
         {
           "location": {
-            "x": 160.01456085521932,
-            "y": 628.7174182775783
+            "x": 43.014560855219315,
+            "y": 616.7174182775783
           },
           "nodeIndex": "DimOrganization",
           "nodeLineageTag": "3b7622d1-44e5-40e9-b627-7d9fb541a691",
@@ -88,8 +88,8 @@
         },
         {
           "location": {
-            "x": 344.1881911985883,
-            "y": 303.61314346169485
+            "x": 356.1881911985883,
+            "y": 362.61314346169485
           },
           "nodeIndex": "FactFinance",
           "nodeLineageTag": "eecab8c4-8bc0-4428-b8fd-a505e5730bb4",
@@ -101,10 +101,24 @@
         },
         {
           "location": {
-            "x": 967.15521972574913,
-            "y": 383.39925259462188
+            "x": 942.15521972574913,
+            "y": 79.399252594621885
           },
           "nodeIndex": "MeasuresFinance",
+          "nodeLineageTag": "b6bbf315-de9a-4e5a-9a3f-f41ae98f5306",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 954.15521972574925,
+            "y": 363.39925259462188
+          },
+          "nodeIndex": "DimCurrencyRate",
+          "nodeLineageTag": "6d1d8a74-881c-4fba-89d6-2ac317cc9924",
           "size": {
             "height": 200,
             "width": 234
