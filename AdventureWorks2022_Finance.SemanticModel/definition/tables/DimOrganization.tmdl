@@ -1,10 +1,10 @@
 table DimOrganization
-	lineageTag: ce4cd13e-6913-401c-9679-10e116853798
+	lineageTag: 3b7622d1-44e5-40e9-b627-7d9fb541a691
 
 	column OrganizationKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 342d2c3f-1bfc-4773-88d6-03714ec92b2b
+		lineageTag: 4c9f667c-9c6b-42da-9057-0127eb123ba5
 		summarizeBy: none
 		sourceColumn: OrganizationKey
 
@@ -13,15 +13,15 @@ table DimOrganization
 	column ParentOrganizationKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 6e9f6ecb-105a-4199-84c5-7fa271b7abce
-		summarizeBy: none
+		lineageTag: d696585d-04c5-4059-a33c-135cfa11acc9
+		summarizeBy: count
 		sourceColumn: ParentOrganizationKey
 
 		annotation SummarizationSetBy = Automatic
 
 	column PercentageOfOwnership
 		dataType: string
-		lineageTag: 65f1de14-08bc-426a-a701-4ffa1d05239a
+		lineageTag: 72f8edc0-b7c0-4ad9-b390-84377b90b467
 		summarizeBy: none
 		sourceColumn: PercentageOfOwnership
 
@@ -29,7 +29,7 @@ table DimOrganization
 
 	column OrganizationName
 		dataType: string
-		lineageTag: c461aa6d-9c0f-4237-b36a-0e723a587317
+		lineageTag: b86d011f-1132-4e06-805a-58660667a77e
 		summarizeBy: none
 		sourceColumn: OrganizationName
 
@@ -38,7 +38,7 @@ table DimOrganization
 	column CurrencyKey
 		dataType: int64
 		formatString: 0
-		lineageTag: bb70a3f9-b524-47d1-af3d-cbe53045de12
+		lineageTag: 31bc2cbc-7362-4fd3-838e-041a014b148b
 		summarizeBy: none
 		sourceColumn: CurrencyKey
 
@@ -53,6 +53,4 @@ table DimOrganization
 				    dbo_DimOrganization = AdventureWorksDW2022{[Schema="dbo",Item="DimOrganization"]}[Data]
 				in
 				    dbo_DimOrganization
-
-	annotation PBI_ResultType = Table
 

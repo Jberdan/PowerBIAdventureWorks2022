@@ -1,10 +1,10 @@
 table FactFinance
-	lineageTag: 93c2d1e6-dc6f-491b-9f93-4cd7e581f287
+	lineageTag: eecab8c4-8bc0-4428-b8fd-a505e5730bb4
 
 	column FinanceKey
 		dataType: int64
 		formatString: 0
-		lineageTag: a1636482-9c52-4fcb-acd4-83d6bd6ea96f
+		lineageTag: 0e4f7a37-82ca-4a89-919e-c0157fc2bf02
 		summarizeBy: count
 		sourceColumn: FinanceKey
 
@@ -13,7 +13,7 @@ table FactFinance
 	column DateKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 82d7a844-5a30-4923-806e-d53a3277604f
+		lineageTag: 21b110dd-783e-4885-8632-c462aedfca76
 		summarizeBy: none
 		sourceColumn: DateKey
 
@@ -22,7 +22,7 @@ table FactFinance
 	column OrganizationKey
 		dataType: int64
 		formatString: 0
-		lineageTag: e3a69050-6595-450a-8161-fb26e23ad58f
+		lineageTag: 2173f60c-0139-4613-8f4d-2796de0df96f
 		summarizeBy: none
 		sourceColumn: OrganizationKey
 
@@ -31,7 +31,7 @@ table FactFinance
 	column DepartmentGroupKey
 		dataType: int64
 		formatString: 0
-		lineageTag: a1c440ba-75ee-4eb9-8c59-05d2ff3d9b62
+		lineageTag: 855648ef-f726-4b2c-a822-3858e94ae28f
 		summarizeBy: none
 		sourceColumn: DepartmentGroupKey
 
@@ -40,7 +40,7 @@ table FactFinance
 	column ScenarioKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 8cb6b500-1487-4959-94c6-5e641decf605
+		lineageTag: d33cd888-a894-4533-94da-00c70e500858
 		summarizeBy: none
 		sourceColumn: ScenarioKey
 
@@ -49,7 +49,7 @@ table FactFinance
 	column AccountKey
 		dataType: int64
 		formatString: 0
-		lineageTag: a050afdd-e210-4c47-afcc-740ae4447d65
+		lineageTag: 6e23f813-da48-4e3f-a5a5-7a208f209d1e
 		summarizeBy: none
 		sourceColumn: AccountKey
 
@@ -57,7 +57,7 @@ table FactFinance
 
 	column Amount
 		dataType: double
-		lineageTag: fd2e781b-7fe9-40d2-974e-1786c90c7498
+		lineageTag: d811cecd-98e5-4942-8950-a4f27a24e444
 		summarizeBy: sum
 		sourceColumn: Amount
 
@@ -65,29 +65,18 @@ table FactFinance
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column Date
-		dataType: dateTime
-		formatString: General Date
-		lineageTag: 6958d064-cc6e-49df-b38a-6679a8c7c8fb
-		summarizeBy: none
-		sourceColumn: Date
-
-		variation Variation
-			isDefault
-			relationship: 17bbd8c8-ae58-4615-a59b-98f4cb789adc
-			defaultHierarchy: LocalDateTable_43d171ea-0d5c-4cbf-9317-9a4c459989f3.'Date Hierarchy'
-
-		annotation SummarizationSetBy = Automatic
-
 	partition FactFinance = m
 		mode: import
 		source =
 				let
 				    Source = Sql.Databases("."),
 				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
-				    dbo_FactFinance = AdventureWorksDW2022{[Schema="dbo",Item="FactFinance"]}[Data]
+				    dbo_FactFinance = AdventureWorksDW2022{[Schema="dbo",Item="FactFinance"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(dbo_FactFinance,{"Date"})
 				in
-				    dbo_FactFinance
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
 

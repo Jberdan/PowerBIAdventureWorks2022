@@ -4,17 +4,17 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
-        "y": 2041
+        "x": 143.15521972574925,
+        "y": 75
       },
       "nodes": [
         {
           "location": {
-            "x": 272.17184409854076,
-            "y": 2162.43896484375
+            "x": 50,
+            "y": 146.76362424243894
           },
           "nodeIndex": "DimAccount",
-          "nodeLineageTag": "767ae14d-24f1-4a18-83ed-fedac45aa599",
+          "nodeLineageTag": "e515a867-7a12-46a5-8e65-e1bce457d2b2",
           "size": {
             "height": 300,
             "width": 234
@@ -23,24 +23,11 @@
         },
         {
           "location": {
-            "x": 0,
-            "y": 2483.2374677173834
+            "x": 445.83513579599673,
+            "y": 814.79850518924377
           },
-          "nodeIndex": "DimDate",
-          "nodeLineageTag": "78e13edb-98fa-4079-b4e0-2ce1f243f4fa",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 207.75740715121663,
-            "y": 2800.4850868395174
-          },
-          "nodeIndex": "DimDepartmentGroup",
-          "nodeLineageTag": "01a5265b-1a85-4bec-880b-58016e779a09",
+          "nodeIndex": "DimCurrency",
+          "nodeLineageTag": "82c2b531-2822-4279-8584-548be1d81738",
           "size": {
             "height": 152,
             "width": 234
@@ -49,11 +36,37 @@
         },
         {
           "location": {
-            "x": 714.47980444434006,
-            "y": 2291.8009224127386
+            "x": 348.05692726947473,
+            "y": 0
+          },
+          "nodeIndex": "DimDate",
+          "nodeLineageTag": "7144fb09-897e-4642-93ca-91286e016e2c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 733.15521972574913,
+            "y": 640.33347115804531
+          },
+          "nodeIndex": "DimDepartmentGroup",
+          "nodeLineageTag": "a00d4e01-e26f-4d66-81bc-46bfc938c128",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 160.01456085521932,
+            "y": 628.7174182775783
           },
           "nodeIndex": "DimOrganization",
-          "nodeLineageTag": "ce4cd13e-6913-401c-9679-10e116853798",
+          "nodeLineageTag": "3b7622d1-44e5-40e9-b627-7d9fb541a691",
           "size": {
             "height": 200,
             "width": 234
@@ -62,11 +75,11 @@
         },
         {
           "location": {
-            "x": 714.46600629863906,
-            "y": 2761.5123576137048
+            "x": 630.95974687718228,
+            "y": 220.96186363633888
           },
           "nodeIndex": "DimScenario",
-          "nodeLineageTag": "7af46d45-9dd7-4b80-ac1b-d57fd0158e60",
+          "nodeLineageTag": "79ea66b6-d6ad-4f12-8bc8-05894f35f740",
           "size": {
             "height": 128,
             "width": 234
@@ -75,11 +88,11 @@
         },
         {
           "location": {
-            "x": 430.27945990337753,
-            "y": 2462.6689462013474
+            "x": 344.1881911985883,
+            "y": 303.61314346169485
           },
           "nodeIndex": "FactFinance",
-          "nodeLineageTag": "93c2d1e6-dc6f-491b-9f93-4cd7e581f287",
+          "nodeLineageTag": "eecab8c4-8bc0-4428-b8fd-a505e5730bb4",
           "size": {
             "height": 272,
             "width": 234
@@ -88,11 +101,10 @@
         },
         {
           "location": {
-            "x": 0,
-            "y": 2169.8360492791335
+            "x": 967.15521972574913,
+            "y": 383.39925259462188
           },
-          "nodeIndex": "DAXFinance",
-          "nodeLineageTag": "e1623481-0027-47a7-86a4-981de81ac5f5",
+          "nodeIndex": "MeasuresFinance",
           "size": {
             "height": 200,
             "width": 234

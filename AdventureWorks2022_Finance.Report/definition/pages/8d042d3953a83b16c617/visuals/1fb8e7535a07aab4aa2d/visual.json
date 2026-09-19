@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "1fb8e7535a07aab4aa2d",
+  "position": {
+    "x": 1614.6134663341645,
+    "y": 51.172069825436409,
+    "z": 1,
+    "height": 385.13715710723193,
+    "width": 140.04987531172071,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimAccount"
+                    }
+                  },
+                  "Property": "AccountType"
+                }
+              },
+              "queryRef": "DimAccount.AccountType",
+              "nativeQueryRef": "AccountType"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

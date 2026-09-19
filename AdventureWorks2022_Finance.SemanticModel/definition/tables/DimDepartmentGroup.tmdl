@@ -1,10 +1,10 @@
 table DimDepartmentGroup
-	lineageTag: 01a5265b-1a85-4bec-880b-58016e779a09
+	lineageTag: a00d4e01-e26f-4d66-81bc-46bfc938c128
 
 	column DepartmentGroupKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 3b62aca2-55cb-485f-b4c3-dc203eb3991a
+		lineageTag: 5f4db2f2-e853-477f-8dca-d089af55c15e
 		summarizeBy: none
 		sourceColumn: DepartmentGroupKey
 
@@ -13,7 +13,7 @@ table DimDepartmentGroup
 	column ParentDepartmentGroupKey
 		dataType: int64
 		formatString: 0
-		lineageTag: bd9b905e-242b-446c-b9f5-f9eecab49ed5
+		lineageTag: 9f32c95e-acbc-46a3-8dcb-5537a3a2f962
 		summarizeBy: none
 		sourceColumn: ParentDepartmentGroupKey
 
@@ -21,7 +21,7 @@ table DimDepartmentGroup
 
 	column DepartmentGroupName
 		dataType: string
-		lineageTag: c9e37c8c-a26f-4957-950f-a58d594214c9
+		lineageTag: 606e71b8-0641-4bae-a3b3-085df1f79d67
 		summarizeBy: none
 		sourceColumn: DepartmentGroupName
 
@@ -36,6 +36,4 @@ table DimDepartmentGroup
 				    dbo_DimDepartmentGroup = AdventureWorksDW2022{[Schema="dbo",Item="DimDepartmentGroup"]}[Data]
 				in
 				    dbo_DimDepartmentGroup
-
-	annotation PBI_ResultType = Table
 

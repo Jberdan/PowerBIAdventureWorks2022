@@ -1,10 +1,10 @@
 table DimDate
-	lineageTag: 78e13edb-98fa-4079-b4e0-2ce1f243f4fa
+	lineageTag: 7144fb09-897e-4642-93ca-91286e016e2c
 
 	column DateKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 545396d9-748b-4091-8ea5-9e13b27caa1d
+		lineageTag: 55f5cadb-14a1-4ee6-b378-b8f879e7d571
 		summarizeBy: none
 		sourceColumn: DateKey
 
@@ -13,14 +13,14 @@ table DimDate
 	column FullDateAlternateKey
 		dataType: dateTime
 		formatString: Long Date
-		lineageTag: 101ab70b-b060-4114-bfd5-8721088321be
+		lineageTag: c9bd8087-29b3-447b-875c-64da03c768b3
 		summarizeBy: none
 		sourceColumn: FullDateAlternateKey
 
 		variation Variation
 			isDefault
-			relationship: b5056c01-0eab-4729-a21b-0c82c2f69f93
-			defaultHierarchy: LocalDateTable_1fbbdad8-5ff3-498b-aca8-ff732832cc56.'Date Hierarchy'
+			relationship: 676ba1c4-bf12-4c9d-a945-9c914e131778
+			defaultHierarchy: LocalDateTable_3f75419a-265a-4546-a6e4-ccb7276c946f.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -29,7 +29,7 @@ table DimDate
 	column DayNumberOfWeek
 		dataType: int64
 		formatString: 0
-		lineageTag: 7623bc82-3f99-4114-b25f-2a9d9c2df1a1
+		lineageTag: 85cbe682-fd99-4b22-89f3-82bf51fbfd14
 		summarizeBy: sum
 		sourceColumn: DayNumberOfWeek
 
@@ -37,32 +37,16 @@ table DimDate
 
 	column EnglishDayNameOfWeek
 		dataType: string
-		lineageTag: fa0a296c-876c-41fe-a282-8adcef554fc5
+		lineageTag: d80d7e00-b2d4-4e91-9a06-7a83d6cdc95e
 		summarizeBy: none
 		sourceColumn: EnglishDayNameOfWeek
-
-		annotation SummarizationSetBy = Automatic
-
-	column SpanishDayNameOfWeek
-		dataType: string
-		lineageTag: a24c293b-bdbf-44cc-9f15-5851011608f0
-		summarizeBy: none
-		sourceColumn: SpanishDayNameOfWeek
-
-		annotation SummarizationSetBy = Automatic
-
-	column FrenchDayNameOfWeek
-		dataType: string
-		lineageTag: 2b049bd7-f9e6-472f-a751-3aff6139d566
-		summarizeBy: none
-		sourceColumn: FrenchDayNameOfWeek
 
 		annotation SummarizationSetBy = Automatic
 
 	column DayNumberOfMonth
 		dataType: int64
 		formatString: 0
-		lineageTag: 72440b01-0117-45d7-9a9b-27cb8923e250
+		lineageTag: 98a5081a-3cfa-43d8-93f3-ac8c375e12f8
 		summarizeBy: sum
 		sourceColumn: DayNumberOfMonth
 
@@ -71,7 +55,7 @@ table DimDate
 	column DayNumberOfYear
 		dataType: int64
 		formatString: 0
-		lineageTag: 136accaf-c12b-4106-b200-9b91b50ff845
+		lineageTag: 00bee177-f19c-483e-b98d-de96b1bec948
 		summarizeBy: sum
 		sourceColumn: DayNumberOfYear
 
@@ -80,7 +64,7 @@ table DimDate
 	column WeekNumberOfYear
 		dataType: int64
 		formatString: 0
-		lineageTag: 4cdfbff4-97a8-4237-9c11-10c01f15fa16
+		lineageTag: 64a5a2e1-de74-41fc-bf5f-a2c21bb33efb
 		summarizeBy: sum
 		sourceColumn: WeekNumberOfYear
 
@@ -88,32 +72,16 @@ table DimDate
 
 	column EnglishMonthName
 		dataType: string
-		lineageTag: 2b0a427f-456c-493b-9944-6148f1f98f18
+		lineageTag: e574e57b-2153-4bac-a257-6992e7eb30ff
 		summarizeBy: none
 		sourceColumn: EnglishMonthName
-
-		annotation SummarizationSetBy = Automatic
-
-	column SpanishMonthName
-		dataType: string
-		lineageTag: a5961a4e-a15f-4b2f-93ab-1f192fc892b8
-		summarizeBy: none
-		sourceColumn: SpanishMonthName
-
-		annotation SummarizationSetBy = Automatic
-
-	column FrenchMonthName
-		dataType: string
-		lineageTag: c44c3da3-2bd2-4a73-a6e8-c11224fb0d5f
-		summarizeBy: none
-		sourceColumn: FrenchMonthName
 
 		annotation SummarizationSetBy = Automatic
 
 	column MonthNumberOfYear
 		dataType: int64
 		formatString: 0
-		lineageTag: 41100be0-25d4-4310-b8a1-e1ec4188c193
+		lineageTag: 67c67a8e-d50d-4ea6-8a3a-c70e89b328b6
 		summarizeBy: sum
 		sourceColumn: MonthNumberOfYear
 
@@ -122,7 +90,7 @@ table DimDate
 	column CalendarQuarter
 		dataType: int64
 		formatString: 0
-		lineageTag: e1cb6dff-c76b-4267-b653-410410273b31
+		lineageTag: 0030a0b0-fa61-459e-80e4-cf087bbc4459
 		summarizeBy: sum
 		sourceColumn: CalendarQuarter
 
@@ -131,7 +99,7 @@ table DimDate
 	column CalendarYear
 		dataType: int64
 		formatString: 0
-		lineageTag: 636a59ff-5453-4448-9375-4693f09c1404
+		lineageTag: 363c21d6-61f7-4d64-9af1-5e258f135d3c
 		summarizeBy: sum
 		sourceColumn: CalendarYear
 
@@ -140,7 +108,7 @@ table DimDate
 	column CalendarSemester
 		dataType: int64
 		formatString: 0
-		lineageTag: baa90210-ae1c-4494-8b6b-7298f24d7490
+		lineageTag: 62b573c9-4145-4f52-b00e-f824bceef398
 		summarizeBy: sum
 		sourceColumn: CalendarSemester
 
@@ -149,7 +117,7 @@ table DimDate
 	column FiscalQuarter
 		dataType: int64
 		formatString: 0
-		lineageTag: 61854177-c3dc-4d77-b177-5e0ce3446d23
+		lineageTag: dfe2cf8a-6d9e-4f7c-875a-6064922ee1c2
 		summarizeBy: sum
 		sourceColumn: FiscalQuarter
 
@@ -158,7 +126,7 @@ table DimDate
 	column FiscalYear
 		dataType: int64
 		formatString: 0
-		lineageTag: 0a88545f-ffe0-4620-861f-9735235aebab
+		lineageTag: d710b737-299b-486a-b4bd-7c26514cc19a
 		summarizeBy: sum
 		sourceColumn: FiscalYear
 
@@ -167,7 +135,7 @@ table DimDate
 	column FiscalSemester
 		dataType: int64
 		formatString: 0
-		lineageTag: a35f112a-e070-445e-96c6-61fb61062522
+		lineageTag: d26e1451-7387-48d3-ac1e-c40084620607
 		summarizeBy: sum
 		sourceColumn: FiscalSemester
 
@@ -179,9 +147,12 @@ table DimDate
 				let
 				    Source = Sql.Databases("."),
 				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
-				    dbo_DimDate = AdventureWorksDW2022{[Schema="dbo",Item="DimDate"]}[Data]
+				    dbo_DimDate = AdventureWorksDW2022{[Schema="dbo",Item="DimDate"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(dbo_DimDate,{"SpanishDayNameOfWeek", "FrenchDayNameOfWeek", "SpanishMonthName", "FrenchMonthName"})
 				in
-				    dbo_DimDate
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
 

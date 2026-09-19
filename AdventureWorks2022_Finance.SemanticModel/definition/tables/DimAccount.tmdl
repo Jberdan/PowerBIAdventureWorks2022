@@ -1,10 +1,10 @@
 table DimAccount
-	lineageTag: 767ae14d-24f1-4a18-83ed-fedac45aa599
+	lineageTag: e515a867-7a12-46a5-8e65-e1bce457d2b2
 
 	column AccountKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 8e7e2c70-578b-444d-ab78-7f047f5ee5a0
+		lineageTag: 3a793e84-bf3f-4a01-b16c-d225e12b6ad3
 		summarizeBy: none
 		sourceColumn: AccountKey
 
@@ -13,7 +13,7 @@ table DimAccount
 	column ParentAccountKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 84eaf05e-2364-4547-a4fa-c66b013f0754
+		lineageTag: fcbdb1d6-9eaa-4e4f-aa49-d30cd7af12e6
 		summarizeBy: none
 		sourceColumn: ParentAccountKey
 
@@ -22,7 +22,7 @@ table DimAccount
 	column AccountCodeAlternateKey
 		dataType: int64
 		formatString: 0
-		lineageTag: a9c0b353-2ca4-4607-855b-8792ea7b1419
+		lineageTag: d048314b-5dcf-4c8c-8264-8c32ccd37451
 		summarizeBy: none
 		sourceColumn: AccountCodeAlternateKey
 
@@ -31,7 +31,7 @@ table DimAccount
 	column ParentAccountCodeAlternateKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 1446488a-e9d4-4e36-b710-d30a67ce02c1
+		lineageTag: f128b169-a436-4fd9-a056-095731ffedb2
 		summarizeBy: none
 		sourceColumn: ParentAccountCodeAlternateKey
 
@@ -39,7 +39,7 @@ table DimAccount
 
 	column AccountDescription
 		dataType: string
-		lineageTag: d56b75c4-9c14-45f1-924d-1f8706f7e289
+		lineageTag: 166c4208-7a0b-4d59-bd93-8ebf608d29fc
 		summarizeBy: none
 		sourceColumn: AccountDescription
 
@@ -47,7 +47,7 @@ table DimAccount
 
 	column AccountType
 		dataType: string
-		lineageTag: 040dd8ed-e0c1-46e6-b1e2-530d634f445d
+		lineageTag: 94533973-d87f-46b7-a720-3dbb5345c168
 		summarizeBy: none
 		sourceColumn: AccountType
 
@@ -55,33 +55,17 @@ table DimAccount
 
 	column Operator
 		dataType: string
-		lineageTag: 7d70f2e0-3015-4f1f-9f87-39c55f656934
+		lineageTag: 7686a100-f786-4f91-906f-0476382dad22
 		summarizeBy: none
 		sourceColumn: Operator
 
 		annotation SummarizationSetBy = Automatic
 
-	column CustomMembers
-		dataType: string
-		lineageTag: 679547f6-ab9b-43b5-8cfd-07e35b96bace
-		summarizeBy: none
-		sourceColumn: CustomMembers
-
-		annotation SummarizationSetBy = Automatic
-
 	column ValueType
 		dataType: string
-		lineageTag: 0518d133-a01b-4d4f-a495-5b187818624c
+		lineageTag: cb4bcd21-8c95-47e1-ab28-cf38742c9983
 		summarizeBy: none
 		sourceColumn: ValueType
-
-		annotation SummarizationSetBy = Automatic
-
-	column CustomMemberOptions
-		dataType: string
-		lineageTag: bf305033-e299-4043-a016-8afc6e770bab
-		summarizeBy: none
-		sourceColumn: CustomMemberOptions
 
 		annotation SummarizationSetBy = Automatic
 
@@ -91,9 +75,12 @@ table DimAccount
 				let
 				    Source = Sql.Databases("."),
 				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
-				    dbo_DimAccount = AdventureWorksDW2022{[Schema="dbo",Item="DimAccount"]}[Data]
+				    dbo_DimAccount = AdventureWorksDW2022{[Schema="dbo",Item="DimAccount"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(dbo_DimAccount,{"CustomMemberOptions", "CustomMembers"})
 				in
-				    dbo_DimAccount
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
 

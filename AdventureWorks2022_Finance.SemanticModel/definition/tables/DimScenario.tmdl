@@ -1,10 +1,10 @@
 table DimScenario
-	lineageTag: 7af46d45-9dd7-4b80-ac1b-d57fd0158e60
+	lineageTag: 79ea66b6-d6ad-4f12-8bc8-05894f35f740
 
 	column ScenarioKey
 		dataType: int64
 		formatString: 0
-		lineageTag: cdc7f941-f6e2-4440-94b5-cf79df1dd47b
+		lineageTag: 39a6e49f-c0b4-485b-9caf-a2c62c6987f2
 		summarizeBy: none
 		sourceColumn: ScenarioKey
 
@@ -12,7 +12,7 @@ table DimScenario
 
 	column ScenarioName
 		dataType: string
-		lineageTag: 4dae19b1-2858-4967-af21-0f9a87cbcece
+		lineageTag: 98117579-8622-4d1f-96ef-c8b99c3ca251
 		summarizeBy: none
 		sourceColumn: ScenarioName
 
@@ -27,6 +27,4 @@ table DimScenario
 				    dbo_DimScenario = AdventureWorksDW2022{[Schema="dbo",Item="DimScenario"]}[Data]
 				in
 				    dbo_DimScenario
-
-	annotation PBI_ResultType = Table
 

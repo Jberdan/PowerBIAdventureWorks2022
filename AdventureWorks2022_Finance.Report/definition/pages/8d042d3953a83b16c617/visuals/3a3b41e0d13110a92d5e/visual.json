@@ -1,0 +1,164 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "3a3b41e0d13110a92d5e",
+  "position": {
+    "x": 76.19047619047619,
+    "y": 127.44588744588744,
+    "z": 0,
+    "height": 771.60173160173156,
+    "width": 1000.1731601731601,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimOrganization"
+                    }
+                  },
+                  "Property": "OrganizationName"
+                }
+              },
+              "queryRef": "DimOrganization.OrganizationName",
+              "nativeQueryRef": "OrganizationName",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCurrency"
+                    }
+                  },
+                  "Property": "CurrencyName"
+                }
+              },
+              "queryRef": "DimCurrency.CurrencyName",
+              "nativeQueryRef": "CurrencyName",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MeasuresFinance"
+                    }
+                  },
+                  "Property": "Total Amount"
+                }
+              },
+              "queryRef": "MeasuresFinance.Total Amount",
+              "nativeQueryRef": "Total Amount"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MeasuresFinance"
+                    }
+                  },
+                  "Property": "Total Transaction Count"
+                }
+              },
+              "queryRef": "MeasuresFinance.Total Transaction Count",
+              "nativeQueryRef": "Total Transaction Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MeasuresFinance"
+                    }
+                  },
+                  "Property": "Budget Amount"
+                }
+              },
+              "queryRef": "MeasuresFinance.Budget Amount",
+              "nativeQueryRef": "Budget Amount"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MeasuresFinance"
+                    }
+                  },
+                  "Property": "Actual Amount"
+                }
+              },
+              "queryRef": "MeasuresFinance.Actual Amount",
+              "nativeQueryRef": "Actual Amount"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MeasuresFinance"
+                    }
+                  },
+                  "Property": "Forecast Amount"
+                }
+              },
+              "queryRef": "MeasuresFinance.Forecast Amount",
+              "nativeQueryRef": "Forecast Amount"
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "DimOrganization.OrganizationName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimOrganization"
+                    }
+                  },
+                  "Property": "OrganizationName"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DimCurrency.CurrencyName"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "drillFilterOtherVisuals": true
+  }
+}
