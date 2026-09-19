@@ -1,0 +1,99 @@
+table FactFinance
+	lineageTag: eecab8c4-8bc0-4428-b8fd-a505e5730bb4
+
+	column FinanceKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e4f7a37-82ca-4a89-919e-c0157fc2bf02
+		summarizeBy: count
+		sourceColumn: FinanceKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 21b110dd-783e-4885-8632-c462aedfca76
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrganizationKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 2173f60c-0139-4613-8f4d-2796de0df96f
+		summarizeBy: none
+		sourceColumn: OrganizationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentGroupKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 855648ef-f726-4b2c-a822-3858e94ae28f
+		summarizeBy: none
+		sourceColumn: DepartmentGroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScenarioKey
+		dataType: int64
+		formatString: 0
+		lineageTag: d33cd888-a894-4533-94da-00c70e500858
+		summarizeBy: none
+		sourceColumn: ScenarioKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e23f813-da48-4e3f-a5a5-7a208f209d1e
+		summarizeBy: none
+		sourceColumn: AccountKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: double
+		lineageTag: d811cecd-98e5-4942-8950-a4f27a24e444
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CurrencyKey =
+			
+			RELATED('DimOrganization'[CurrencyKey])
+		formatString: 0
+		lineageTag: ffb8b3d0-abdd-4fd5-82d3-22b07162404e
+		summarizeBy: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExchangeKey =
+			
+			[CurrencyKey] & [DateKey]
+		lineageTag: d7488019-93f8-45b0-9c85-4588b01fc282
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactFinance = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
+				    dbo_FactFinance = AdventureWorksDW2022{[Schema="dbo",Item="FactFinance"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(dbo_FactFinance,{"Date"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

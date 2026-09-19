@@ -1,0 +1,29 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["DimAccount","DimCurrency","DimDate","DimDepartmentGroup","DimOrganization","DimScenario","FactFinance","DimCurrencyRate"]
+
+annotation PBI_ProTooling = ["CopilotTooling","DevMode","TMDLView_Desktop"]
+
+ref table DimAccount
+ref table DimCurrency
+ref table DimDate
+ref table DateTableTemplate_a2857025-53e5-4fa2-b09e-49658fb10ab7
+ref table LocalDateTable_3f75419a-265a-4546-a6e4-ccb7276c946f
+ref table DimDepartmentGroup
+ref table DimOrganization
+ref table DimScenario
+ref table FactFinance
+ref table MeasuresFinance
+ref table DimCurrencyRate
+
+ref cultureInfo en-US
+

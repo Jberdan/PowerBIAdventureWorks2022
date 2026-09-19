@@ -1,0 +1,131 @@
+table MeasuresFinance
+	lineageTag: b6bbf315-de9a-4e5a-9a3f-f41ae98f5306
+
+	measure 'Total Amount' =
+			SUM('FactFinance'[Amount])
+			//Total amount from FactFinance based on current filter
+		lineageTag: 829ca0de-a7c5-465a-8c4b-b02345937e8b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Transaction Count' =
+			
+			COUNTROWS('FactFinance')
+		formatString: 0
+		lineageTag: 391372f7-32fb-451d-8d00-33e72f4e580f
+
+	measure 'Actual Amount' =
+			
+			CALCULATE(
+			    [Total Amount],
+			    'DimScenario'[ScenarioName] = "Actual"
+			)
+		lineageTag: 85002448-5f87-467f-ac6f-681ed1514c47
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Budget Amount' =
+			
+			CALCULATE(
+			    [Total Amount],
+			    'DimScenario'[ScenarioName] = "Budget"
+			)
+		lineageTag: 10375b14-1285-4ebf-a7e6-183f4a60292c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Forecast Amount' =
+			
+			CALCULATE(
+			    [Total Amount],
+			    'DimScenario'[ScenarioName] = "Forecast"
+			)
+		lineageTag: 52998c59-1320-4131-a0c0-cd24e1bc44da
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Assets =
+			
+			CALCULATE(
+			    [Total Amount],
+			    'DimAccount'[AccountType] = "Assets"
+			)
+		lineageTag: 879a8ede-645c-4437-9260-06aaad7c388a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Balances =
+			
+			CALCULATE(
+			    [Total Amount],
+			    'DimAccount'[AccountType] = "Balances"
+			)
+		lineageTag: df443a52-7e61-4e21-99ea-41f7d32ccfc4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Expenditures =
+			
+			CALCULATE(
+			    [Total Amount],
+			    'DimAccount'[AccountType] = "Expenditures"
+			)
+		lineageTag: 11778045-036f-4896-ba50-510e19736781
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cash Flow' =
+			
+			CALCULATE(
+			    [Total Amount],
+			    'DimAccount'[AccountType] = "Flow"
+			)
+		lineageTag: 51d7eba6-1e1a-41cb-92b5-e5f5fb15e6b3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Liabilities =
+			
+			CALCULATE(
+			    [Total Amount],
+			    'DimAccount'[AccountType] = "Liabilities"
+			)
+		lineageTag: 794e3e3b-0312-49b3-87cf-a2cfacc601be
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Revenue =
+			
+			CALCULATE(
+			    [Total Amount],
+			    'DimAccount'[AccountType] = "Revenue"
+			)
+		lineageTag: 00f5fa53-5df5-4ab7-9f33-9087c1e160f6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Statistical =
+			
+			CALCULATE(
+			    [Total Amount],
+			    'DimAccount'[AccountType] = "Statistical"
+			)
+		lineageTag: 64fb2cba-0756-4724-b1c4-667c9538bb3a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: c0e9857f-b786-43ab-b233-542166e1ffcf
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MeasuresFinance = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = b0917462ab0c43fcabb57bfdd15484f1
+

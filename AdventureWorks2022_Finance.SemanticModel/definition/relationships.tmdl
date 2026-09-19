@@ -1,0 +1,45 @@
+relationship 676ba1c4-bf12-4c9d-a945-9c914e131778
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDate.FullDateAlternateKey
+	toColumn: LocalDateTable_3f75419a-265a-4546-a6e4-ccb7276c946f.Date
+
+relationship f234117e-475b-4c9d-a3ba-27522f7bf182
+	fromColumn: DimOrganization.CurrencyKey
+	toColumn: DimCurrency.CurrencyKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship bd312887-5de0-4d12-9276-cd2a60bc0537
+	fromColumn: FactFinance.AccountKey
+	toColumn: DimAccount.AccountKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship abc8e1d8-2608-40ee-8e2f-c4b94ba772fa
+	fromColumn: FactFinance.DateKey
+	toColumn: DimDate.DateKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship dd744ccd-d2dd-4d01-8a7b-648d0f901d90
+	fromColumn: FactFinance.DepartmentGroupKey
+	toColumn: DimDepartmentGroup.DepartmentGroupKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship dccf0572-d8c8-43e0-b513-75bf0ac5cebf
+	fromColumn: FactFinance.OrganizationKey
+	toColumn: DimOrganization.OrganizationKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 4df3870e-b8e9-4c85-8fc5-b680be35e3b0
+	fromColumn: FactFinance.ScenarioKey
+	toColumn: DimScenario.ScenarioKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 2adde12f-cf49-de94-26c9-a330a9a6af7c
+	fromColumn: FactFinance.ExchangeKey
+	toColumn: DimCurrencyRate.ExchangeKey
+

@@ -1,0 +1,86 @@
+table DimAccount
+	lineageTag: e515a867-7a12-46a5-8e65-e1bce457d2b2
+
+	column AccountKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a793e84-bf3f-4a01-b16c-d225e12b6ad3
+		summarizeBy: none
+		sourceColumn: AccountKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentAccountKey
+		dataType: int64
+		formatString: 0
+		lineageTag: fcbdb1d6-9eaa-4e4f-aa49-d30cd7af12e6
+		summarizeBy: none
+		sourceColumn: ParentAccountKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountCodeAlternateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: d048314b-5dcf-4c8c-8264-8c32ccd37451
+		summarizeBy: none
+		sourceColumn: AccountCodeAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentAccountCodeAlternateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f128b169-a436-4fd9-a056-095731ffedb2
+		summarizeBy: none
+		sourceColumn: ParentAccountCodeAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountDescription
+		dataType: string
+		lineageTag: 166c4208-7a0b-4d59-bd93-8ebf608d29fc
+		summarizeBy: none
+		sourceColumn: AccountDescription
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountType
+		dataType: string
+		lineageTag: 94533973-d87f-46b7-a720-3dbb5345c168
+		summarizeBy: none
+		sourceColumn: AccountType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Operator
+		dataType: string
+		lineageTag: 7686a100-f786-4f91-906f-0476382dad22
+		summarizeBy: none
+		sourceColumn: Operator
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValueType
+		dataType: string
+		lineageTag: cb4bcd21-8c95-47e1-ab28-cf38742c9983
+		summarizeBy: none
+		sourceColumn: ValueType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimAccount = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
+				    dbo_DimAccount = AdventureWorksDW2022{[Schema="dbo",Item="DimAccount"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(dbo_DimAccount,{"CustomMemberOptions", "CustomMembers"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

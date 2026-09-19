@@ -1,0 +1,101 @@
+createOrReplace
+
+	table DimAccount
+		lineageTag: 767ae14d-24f1-4a18-83ed-fedac45aa599
+
+		column AccountKey
+			dataType: int64
+			formatString: 0
+			lineageTag: 8e7e2c70-578b-444d-ab78-7f047f5ee5a0
+			summarizeBy: none
+			sourceColumn: AccountKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column ParentAccountKey
+			dataType: int64
+			formatString: 0
+			lineageTag: 84eaf05e-2364-4547-a4fa-c66b013f0754
+			summarizeBy: none
+			sourceColumn: ParentAccountKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column AccountCodeAlternateKey
+			dataType: int64
+			formatString: 0
+			lineageTag: a9c0b353-2ca4-4607-855b-8792ea7b1419
+			summarizeBy: none
+			sourceColumn: AccountCodeAlternateKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column ParentAccountCodeAlternateKey
+			dataType: int64
+			formatString: 0
+			lineageTag: 1446488a-e9d4-4e36-b710-d30a67ce02c1
+			summarizeBy: none
+			sourceColumn: ParentAccountCodeAlternateKey
+
+			annotation SummarizationSetBy = Automatic
+
+		column AccountDescription
+			dataType: string
+			lineageTag: d56b75c4-9c14-45f1-924d-1f8706f7e289
+			summarizeBy: none
+			sourceColumn: AccountDescription
+
+			annotation SummarizationSetBy = Automatic
+
+		column AccountType
+			dataType: string
+			lineageTag: 040dd8ed-e0c1-46e6-b1e2-530d634f445d
+			summarizeBy: none
+			sourceColumn: AccountType
+
+			annotation SummarizationSetBy = Automatic
+
+		column Operator
+			dataType: string
+			lineageTag: 7d70f2e0-3015-4f1f-9f87-39c55f656934
+			summarizeBy: none
+			sourceColumn: Operator
+
+			annotation SummarizationSetBy = Automatic
+
+		column CustomMembers
+			dataType: string
+			lineageTag: 679547f6-ab9b-43b5-8cfd-07e35b96bace
+			summarizeBy: none
+			sourceColumn: CustomMembers
+
+			annotation SummarizationSetBy = Automatic
+
+		column ValueType
+			dataType: string
+			lineageTag: 0518d133-a01b-4d4f-a495-5b187818624c
+			summarizeBy: none
+			sourceColumn: ValueType
+
+			annotation SummarizationSetBy = Automatic
+
+		column CustomMemberOptions
+			dataType: string
+			lineageTag: bf305033-e299-4043-a016-8afc6e770bab
+			summarizeBy: none
+			sourceColumn: CustomMemberOptions
+
+			annotation SummarizationSetBy = Automatic
+
+		partition DimAccount = m
+			mode: import
+			source =
+					let
+					    Source = Sql.Databases("."),
+					    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
+					    dbo_DimAccount = AdventureWorksDW2022{[Schema="dbo",Item="DimAccount"]}[Data]
+					in
+					    dbo_DimAccount
+
+		annotation PBI_ResultType = Table
+

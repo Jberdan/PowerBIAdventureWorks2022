@@ -1,0 +1,66 @@
+table DimCurrencyRate
+	lineageTag: 6d1d8a74-881c-4fba-89d6-2ac317cc9924
+
+	column CurrencyKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b4d708cd-c076-471f-9119-521afd18a463
+		summarizeBy: none
+		sourceColumn: CurrencyKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 552ba00b-7e0a-466e-928e-cc000eb4539b
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AverageRate
+		dataType: double
+		lineageTag: f13599e4-cf6f-40ba-b9ff-1a27559b4266
+		summarizeBy: none
+		sourceColumn: AverageRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EndOfDayRate
+		dataType: double
+		lineageTag: 5c6e828c-a268-4c4f-89f4-5d6276e32549
+		summarizeBy: none
+		sourceColumn: EndOfDayRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ExchangeKey =
+			
+			[CurrencyKey] & [DateKey]
+		lineageTag: f9cec3e3-7913-4b79-a9ff-390c171678ce
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCurrencyRate = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("."),
+				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
+				    dbo_FactCurrencyRate = AdventureWorksDW2022{[Schema="dbo",Item="FactCurrencyRate"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(dbo_FactCurrencyRate,{"Date"})
+				in
+				    #"Removed Columns"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

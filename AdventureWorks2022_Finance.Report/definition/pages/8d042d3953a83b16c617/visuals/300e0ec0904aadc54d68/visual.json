@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "300e0ec0904aadc54d68",
+  "position": {
+    "x": 1246.7532467532467,
+    "y": 634.45887445887445,
+    "z": 5,
+    "height": 264.58874458874459,
+    "width": 343.54978354978351,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimDepartmentGroup"
+                    }
+                  },
+                  "Property": "DepartmentGroupName"
+                }
+              },
+              "queryRef": "DimDepartmentGroup.DepartmentGroupName",
+              "nativeQueryRef": "DepartmentGroupName"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
