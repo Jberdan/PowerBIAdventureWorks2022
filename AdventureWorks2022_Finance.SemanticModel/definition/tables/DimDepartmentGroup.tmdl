@@ -27,6 +27,26 @@ table DimDepartmentGroup
 
 		annotation SummarizationSetBy = Automatic
 
+	column DepartmentHierarchyPath =
+			
+			PATH(
+			    DimDepartmentGroup[DepartmentGroupKey],
+			    DimDepartmentGroup[ParentDepartmentGroupKey]
+			)
+		lineageTag: 7eb63dde-1e22-4249-b5a6-2f43b9066cf0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentHierarchyLevel =
+			
+			PATHLENGTH(DimDepartmentGroup[DepartmentHierarchyPath])
+		formatString: 0
+		lineageTag: c7fabeb3-4606-47db-9ace-471ab0ed4089
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimDepartmentGroup = m
 		mode: import
 		source =

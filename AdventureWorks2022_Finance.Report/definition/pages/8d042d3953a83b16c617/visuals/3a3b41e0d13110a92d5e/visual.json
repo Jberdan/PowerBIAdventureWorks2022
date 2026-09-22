@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "3a3b41e0d13110a92d5e",
   "position": {
-    "x": 76.19047619047619,
-    "y": 127.44588744588744,
+    "x": 25.480093676814988,
+    "y": 26.978922716627633,
     "z": 0,
-    "height": 771.60173160173156,
-    "width": 817.31601731601722,
+    "height": 392.69320843091333,
+    "width": 1362.4355971896955,
     "tabOrder": 0
   },
   "visual": {
@@ -17,33 +17,83 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimOrganization"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimAccount"
+                        }
+                      },
+                      "Hierarchy": "AccountCodeAlternateKey Hierarchy 2"
                     }
                   },
-                  "Property": "OrganizationName"
+                  "Level": "Root Account"
                 }
               },
-              "queryRef": "DimOrganization.OrganizationName",
-              "nativeQueryRef": "OrganizationName",
+              "queryRef": "DimAccount.AccountCodeAlternateKey Hierarchy 2.Root Account",
+              "nativeQueryRef": "AccountCodeAlternateKey Hierarchy 2 Root Account",
               "active": true
             },
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimCurrency"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimAccount"
+                        }
+                      },
+                      "Hierarchy": "AccountCodeAlternateKey Hierarchy 2"
                     }
                   },
-                  "Property": "CurrencyName"
+                  "Level": "ParentAccountDescription"
                 }
               },
-              "queryRef": "DimCurrency.CurrencyName",
-              "nativeQueryRef": "CurrencyName",
+              "queryRef": "DimAccount.AccountCodeAlternateKey Hierarchy 2.ParentAccountDescription",
+              "nativeQueryRef": "AccountCodeAlternateKey Hierarchy 2 ParentAccountDescription",
               "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimAccount"
+                        }
+                      },
+                      "Hierarchy": "AccountCodeAlternateKey Hierarchy 2"
+                    }
+                  },
+                  "Level": "AccountDescription"
+                }
+              },
+              "queryRef": "DimAccount.AccountCodeAlternateKey Hierarchy 2.AccountDescription",
+              "nativeQueryRef": "AccountCodeAlternateKey Hierarchy 2 AccountDescription",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimAccount"
+                        }
+                      },
+                      "Hierarchy": "AccountCodeAlternateKey Hierarchy 2"
+                    }
+                  },
+                  "Level": "AccountHierarchyLevel"
+                }
+              },
+              "queryRef": "DimAccount.AccountCodeAlternateKey Hierarchy 2.AccountHierarchyLevel",
+              "nativeQueryRef": "AccountCodeAlternateKey Hierarchy 2 AccountHierarchyLevel",
+              "active": false
             }
           ]
         },
@@ -57,11 +107,25 @@
                       "Entity": "MeasuresFinance"
                     }
                   },
-                  "Property": "Total Amount"
+                  "Property": "Total USD Amount"
+                }
+              },
+              "queryRef": "MeasuresFinance.Total Exchange Amount",
+              "nativeQueryRef": "Total USD Amount"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MeasuresFinance"
+                    }
+                  },
+                  "Property": "Total Country Currency Amount"
                 }
               },
               "queryRef": "MeasuresFinance.Total Amount",
-              "nativeQueryRef": "Total Amount"
+              "nativeQueryRef": "Total Country Currency Amount"
             }
           ]
         }
@@ -75,7 +139,7 @@
         "levels": [
           {
             "queryRefs": [
-              "DimOrganization.OrganizationName"
+              "DimAccount.AccountCodeAlternateKey Hierarchy 2.Root Account"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -83,10 +147,10 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimOrganization"
+                      "Entity": "DimAccount"
                     }
                   },
-                  "Property": "OrganizationName"
+                  "Property": "Root Account"
                 }
               }
             ],
@@ -94,10 +158,35 @@
           },
           {
             "queryRefs": [
-              "DimCurrency.CurrencyName"
+              "DimAccount.AccountCodeAlternateKey Hierarchy 2.ParentAccountDescription"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimAccount"
+                    }
+                  },
+                  "Property": "ParentAccountDescription"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DimAccount.AccountCodeAlternateKey Hierarchy 2.AccountDescription"
             ],
             "isCollapsed": true,
             "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DimAccount.AccountCodeAlternateKey Hierarchy 2.AccountHierarchyLevel"
+            ],
+            "isCollapsed": true
           }
         ],
         "root": {
@@ -106,62 +195,50 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'Australia'"
+                    "Value": "'Balance Sheet'"
                   }
                 }
               ],
-              "isToggled": true
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Assets'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
             }
           ]
         }
       }
     ],
+    "objects": {
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "1fd7bf50218c3ad15a39",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MeasuresFinance"
-              }
-            },
-            "Property": "Total Amount"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f9da253c29eb63808623",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimOrganization"
-              }
-            },
-            "Property": "OrganizationName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "8dfce348005947600e9c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimCurrency"
-              }
-            },
-            "Property": "CurrencyName"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

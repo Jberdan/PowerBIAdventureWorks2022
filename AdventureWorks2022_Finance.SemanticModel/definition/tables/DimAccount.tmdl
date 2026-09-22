@@ -69,6 +69,70 @@ table DimAccount
 
 		annotation SummarizationSetBy = Automatic
 
+	column AccountHierarchyPath =
+			
+			PATH(
+			    DimAccount[AccountKey],
+			    DimAccount[ParentAccountKey]
+			)
+		lineageTag: 5c4caca1-6280-4396-923b-6e6d7cba2984
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountHierarchyLevel =
+			
+			PATHLENGTH(DimAccount[AccountHierarchyPath])
+		formatString: 0
+		lineageTag: 0cedabb7-ce37-4f56-867a-ff0ac1c3b921
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentAccountDescription =
+			
+			LOOKUPVALUE(
+			    DimAccount[AccountDescription],
+			    DimAccount[AccountKey],DimAccount[ParentAccountKey]
+			)
+		lineageTag: e0d8f4c8-1e91-49b9-b507-682318fab1ec
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Root Account' =
+			
+			VAR RootKey =
+			    PATHITEM(DimAccount[AccountHierarchyPath],1,INTEGER)
+			RETURN
+			    LOOKUPVALUE(
+			        DimAccount[AccountDescription],
+			        DimAccount[AccountKey],RootKey
+			    )
+		lineageTag: 2cbbc791-4a92-4146-a85d-328b12f7cb54
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'AccountCodeAlternateKey Hierarchy 2'
+		lineageTag: 2c08a603-03bf-4be6-bede-db8e82d6ac32
+
+		level 'Root Account'
+			lineageTag: 22db7a13-828b-4d1c-85e5-82b57acd6c55
+			column: 'Root Account'
+
+		level ParentAccountDescription
+			lineageTag: fb076d30-6381-4223-880a-e70a8ffd3461
+			column: ParentAccountDescription
+
+		level AccountDescription
+			lineageTag: b9ac520d-bde5-41f1-abbe-c7755f3ae38f
+			column: AccountDescription
+
+		level AccountHierarchyLevel
+			lineageTag: b08929c9-8ef4-48a1-9d49-f8385ff54284
+			column: AccountHierarchyLevel
+
 	partition DimAccount = m
 		mode: import
 		source =

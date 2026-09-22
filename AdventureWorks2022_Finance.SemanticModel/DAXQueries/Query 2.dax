@@ -1,0 +1,35 @@
+DEFINE
+	VAR __DM3FilterTable = 
+		TREATAS({"Australia"}, 'DimOrganization'[OrganizationName])
+
+	VAR __DS0Core = 
+		SUMMARIZECOLUMNS(
+			ROLLUPADDISSUBTOTAL(
+				'DimOrganization'[OrganizationName], "IsGrandTotalRowTotal",
+				'DimCurrency'[CurrencyName], "IsDM1Total", NONVISUAL(__DM3FilterTable)
+			),
+			"Total_Amount", 'MeasuresFinance'[Total Amount]
+		)
+
+	VAR __DS0PrimaryWindowed = 
+		TOPN(
+			502,
+			__DS0Core,
+			[IsGrandTotalRowTotal],
+			0,
+			'DimOrganization'[OrganizationName],
+			1,
+			[IsDM1Total],
+			0,
+			'DimCurrency'[CurrencyName],
+			1
+		)
+
+EVALUATE
+	__DS0PrimaryWindowed
+
+ORDER BY
+	[IsGrandTotalRowTotal] DESC,
+	'DimOrganization'[OrganizationName],
+	[IsDM1Total] DESC,
+	'DimCurrency'[CurrencyName]

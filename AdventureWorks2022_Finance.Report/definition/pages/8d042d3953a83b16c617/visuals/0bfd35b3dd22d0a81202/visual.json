@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "0bfd35b3dd22d0a81202",
   "position": {
-    "x": 1246.7532467532467,
-    "y": 51.255411255411254,
-    "z": 2,
-    "height": 569.35064935064929,
-    "width": 350.47619047619048,
-    "tabOrder": 2
+    "x": 706.35944700460834,
+    "y": 516.12903225806451,
+    "z": 2000,
+    "height": 552.9953917050691,
+    "width": 514.65437788018437,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "tableEx",
@@ -15,6 +15,20 @@
       "queryState": {
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimAccount"
+                    }
+                  },
+                  "Property": "ParentAccountDescription"
+                }
+              },
+              "queryRef": "DimAccount.ParentAccountDescription",
+              "nativeQueryRef": "ParentAccountDescription"
+            },
             {
               "field": {
                 "Column": {
@@ -31,6 +45,23 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimAccount"
+                  }
+                },
+                "Property": "ParentAccountDescription"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "drillFilterOtherVisuals": true
