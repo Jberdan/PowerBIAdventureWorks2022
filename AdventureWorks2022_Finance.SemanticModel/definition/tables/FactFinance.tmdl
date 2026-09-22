@@ -91,6 +91,13 @@ table FactFinance
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Exchange Amount' = [Amount] * FactFinance[Exchange Rate]
+		formatString: #,0.00
+		lineageTag: c7c5610b-775c-47e6-8041-0d6adf72ac4e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactFinance = m
 		mode: import
 		source =
