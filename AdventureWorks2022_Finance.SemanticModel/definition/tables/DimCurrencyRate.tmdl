@@ -5,7 +5,7 @@ table DimCurrencyRate
 		dataType: int64
 		formatString: 0
 		lineageTag: b4d708cd-c076-471f-9119-521afd18a463
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: CurrencyKey
 
 		annotation SummarizationSetBy = Automatic
@@ -14,7 +14,7 @@ table DimCurrencyRate
 		dataType: int64
 		formatString: 0
 		lineageTag: 552ba00b-7e0a-466e-928e-cc000eb4539b
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: DateKey
 
 		annotation SummarizationSetBy = Automatic
@@ -22,7 +22,7 @@ table DimCurrencyRate
 	column AverageRate
 		dataType: double
 		lineageTag: f13599e4-cf6f-40ba-b9ff-1a27559b4266
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: AverageRate
 
 		annotation SummarizationSetBy = Automatic
@@ -32,7 +32,7 @@ table DimCurrencyRate
 	column EndOfDayRate
 		dataType: double
 		lineageTag: 5c6e828c-a268-4c4f-89f4-5d6276e32549
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: EndOfDayRate
 
 		annotation SummarizationSetBy = Automatic
@@ -47,18 +47,28 @@ table DimCurrencyRate
 
 		annotation SummarizationSetBy = Automatic
 
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a4b4e223-81e0-4829-85dc-03c3b630a1fa
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: f31670d5-1003-452d-a0ef-46471c2d3e64
+			defaultHierarchy: LocalDateTable_dc90d3a5-f0e9-42f0-98e7-6383e8af3753.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimCurrencyRate = m
 		mode: import
 		source =
 				let
-				    Source = Sql.Databases("."),
-				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
-				    dbo_FactCurrencyRate = AdventureWorksDW2022{[Schema="dbo",Item="FactCurrencyRate"]}[Data],
-				    #"Removed Columns" = Table.RemoveColumns(dbo_FactCurrencyRate,{"Date"})
+				  Source = Sql.Database(ServerName, DatabaseName),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "FactCurrencyRate"]}[Data]
 				in
-				    #"Removed Columns"
-
-	changedProperty = Name
+				  #"Navigation 1"
 
 	annotation PBI_NavigationStepName = Navigation
 

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "09ed9638a63a37d59a04",
+  "name": "655b085b14269a096ed3",
   "position": {
-    "x": 1609.6969696969695,
-    "y": 634.45887445887445,
-    "z": 4000,
-    "height": 385.1082251082251,
-    "width": 289.52380952380952,
-    "tabOrder": 4000
+    "x": 179.10224438902745,
+    "y": 18.852867830423939,
+    "z": 0,
+    "height": 385.13715710723193,
+    "width": 140.04987531172071,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "tableEx",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimOrganization"
+                      "Entity": "DimAccount"
                     }
                   },
-                  "Property": "OrganizationName"
+                  "Property": "AccountType"
                 }
               },
-              "queryRef": "DimOrganization.OrganizationName",
-              "nativeQueryRef": "OrganizationName"
+              "queryRef": "DimAccount.AccountType",
+              "nativeQueryRef": "AccountType"
             }
           ]
         }

@@ -28,7 +28,7 @@
                       "Hierarchy": "AccountCodeAlternateKey Hierarchy 2"
                     }
                   },
-                  "Level": "Root Account"
+                  "Level": "RootAccount"
                 }
               },
               "queryRef": "DimAccount.AccountCodeAlternateKey Hierarchy 2.Root Account",
@@ -150,7 +150,7 @@
                       "Entity": "DimAccount"
                     }
                   },
-                  "Property": "Root Account"
+                  "Property": "RootAccount"
                 }
               }
             ],

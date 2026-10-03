@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "b2b065707e37c0d190dc",
+  "position": {
+    "x": 335.78475336322867,
+    "y": 18.654708520179373,
+    "z": 6,
+    "height": 1033.1838565022422,
+    "width": 761.97309417040356,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimAccount"
+                        }
+                      },
+                      "Hierarchy": "AccountCodeAlternateKey Hierarchy 2"
+                    }
+                  },
+                  "Level": "RootAccount"
+                }
+              },
+              "queryRef": "DimAccount.AccountCodeAlternateKey Hierarchy 2.Root Account",
+              "nativeQueryRef": "AccountCodeAlternateKey Hierarchy 2 Root Account"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimAccount"
+                        }
+                      },
+                      "Hierarchy": "AccountCodeAlternateKey Hierarchy 2"
+                    }
+                  },
+                  "Level": "ParentAccountDescription"
+                }
+              },
+              "queryRef": "DimAccount.AccountCodeAlternateKey Hierarchy 2.ParentAccountDescription",
+              "nativeQueryRef": "AccountCodeAlternateKey Hierarchy 2 ParentAccountDescription"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimAccount"
+                        }
+                      },
+                      "Hierarchy": "AccountCodeAlternateKey Hierarchy 2"
+                    }
+                  },
+                  "Level": "AccountDescription"
+                }
+              },
+              "queryRef": "DimAccount.AccountCodeAlternateKey Hierarchy 2.AccountDescription",
+              "nativeQueryRef": "AccountCodeAlternateKey Hierarchy 2 AccountDescription"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimAccount"
+                        }
+                      },
+                      "Hierarchy": "AccountCodeAlternateKey Hierarchy 2"
+                    }
+                  },
+                  "Level": "AccountHierarchyLevel"
+                }
+              },
+              "queryRef": "DimAccount.AccountCodeAlternateKey Hierarchy 2.AccountHierarchyLevel",
+              "nativeQueryRef": "AccountCodeAlternateKey Hierarchy 2 AccountHierarchyLevel"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimAccount"
+                      }
+                    },
+                    "Hierarchy": "AccountCodeAlternateKey Hierarchy 2"
+                  }
+                },
+                "Level": "RootAccount"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

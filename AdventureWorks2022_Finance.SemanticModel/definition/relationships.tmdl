@@ -43,3 +43,13 @@ relationship 2adde12f-cf49-de94-26c9-a330a9a6af7c
 	fromColumn: FactFinance.ExchangeKey
 	toColumn: DimCurrencyRate.ExchangeKey
 
+relationship c5029f80-5c1d-4996-8cc5-a425735f3f06
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactFinance.Date
+	toColumn: LocalDateTable_ff5e3bc0-4eb1-461f-b3d0-35e80beb2b1b.Date
+
+relationship f31670d5-1003-452d-a0ef-46471c2d3e64
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimCurrencyRate.Date
+	toColumn: LocalDateTable_dc90d3a5-f0e9-42f0-98e7-6383e8af3753.Date
+

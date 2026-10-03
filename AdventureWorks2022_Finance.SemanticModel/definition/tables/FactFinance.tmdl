@@ -98,16 +98,28 @@ table FactFinance
 
 		annotation SummarizationSetBy = Automatic
 
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0c0b5959-61d6-477a-a98f-b750284aef02
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: c5029f80-5c1d-4996-8cc5-a425735f3f06
+			defaultHierarchy: LocalDateTable_ff5e3bc0-4eb1-461f-b3d0-35e80beb2b1b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactFinance = m
 		mode: import
 		source =
 				let
-				    Source = Sql.Databases("."),
-				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
-				    dbo_FactFinance = AdventureWorksDW2022{[Schema="dbo",Item="FactFinance"]}[Data],
-				    #"Removed Columns" = Table.RemoveColumns(dbo_FactFinance,{"Date"})
+				  Source = Sql.Database(ServerName, DatabaseName),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "FactFinance"]}[Data]
 				in
-				    #"Removed Columns"
+				  #"Navigation 1"
 
 	annotation PBI_NavigationStepName = Navigation
 

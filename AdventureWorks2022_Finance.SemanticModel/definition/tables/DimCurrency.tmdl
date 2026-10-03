@@ -30,9 +30,8 @@ table DimCurrency
 		mode: import
 		source =
 				let
-				    Source = Sql.Databases("."),
-				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
-				    dbo_DimCurrency = AdventureWorksDW2022{[Schema="dbo",Item="DimCurrency"]}[Data]
+				  Source = Sql.Database(ServerName, DatabaseName),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "DimCurrency"]}[Data]
 				in
-				    dbo_DimCurrency
+				  #"Navigation 1"
 
