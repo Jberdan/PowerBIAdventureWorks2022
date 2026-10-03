@@ -1,0 +1,100 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "6d88d7e4ca99ea498590",
+  "position": {
+    "x": 1112.1076233183855,
+    "y": 18.654708520179373,
+    "z": 4,
+    "height": 284.12556053811659,
+    "width": 740.44843049327346,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimDepartmentGroup"
+                        }
+                      },
+                      "Hierarchy": "DepartmentGroupKey Hierarchy"
+                    }
+                  },
+                  "Level": "RootDepartment"
+                }
+              },
+              "queryRef": "DimDepartmentGroup.DepartmentGroupKey Hierarchy.RootDepartment",
+              "nativeQueryRef": "DepartmentGroupKey Hierarchy RootDepartment"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimDepartmentGroup"
+                        }
+                      },
+                      "Hierarchy": "DepartmentGroupKey Hierarchy"
+                    }
+                  },
+                  "Level": "ParentDepartmentName"
+                }
+              },
+              "queryRef": "DimDepartmentGroup.DepartmentGroupKey Hierarchy.ParentDepartmentName",
+              "nativeQueryRef": "DepartmentGroupKey Hierarchy ParentDepartmentName"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimDepartmentGroup"
+                        }
+                      },
+                      "Hierarchy": "DepartmentGroupKey Hierarchy"
+                    }
+                  },
+                  "Level": "DepartmentGroupName"
+                }
+              },
+              "queryRef": "DimDepartmentGroup.DepartmentGroupKey Hierarchy.DepartmentGroupName",
+              "nativeQueryRef": "DepartmentGroupKey Hierarchy DepartmentGroupName"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimDepartmentGroup"
+                        }
+                      },
+                      "Hierarchy": "DepartmentGroupKey Hierarchy"
+                    }
+                  },
+                  "Level": "DepartmentHierarchyLevel"
+                }
+              },
+              "queryRef": "DimDepartmentGroup.DepartmentGroupKey Hierarchy.DepartmentHierarchyLevel",
+              "nativeQueryRef": "DepartmentGroupKey Hierarchy DepartmentHierarchyLevel"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

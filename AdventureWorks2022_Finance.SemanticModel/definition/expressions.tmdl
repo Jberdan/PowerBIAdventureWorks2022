@@ -1,0 +1,14 @@
+expression ServerName = "localhost" meta [IsParameterQuery = true, IsParameterQueryRequired = false, Type = type any]
+	lineageTag: 4c6fac38-3476-43a1-87d0-99540b84a3bb
+
+	annotation PBI_ResultType = Text
+
+expression DatabaseName =
+		let
+		    Source = "AdventureWorksDW2022" meta [IsParameterQuery = true, IsParameterQueryRequired = false, Type = type any]
+		in
+		    Source
+	lineageTag: 7d1b1617-17f9-48f0-9d00-3d205eef622f
+
+	annotation PBI_ResultType = Text
+

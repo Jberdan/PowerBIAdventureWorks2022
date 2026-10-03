@@ -22,9 +22,8 @@ table DimScenario
 		mode: import
 		source =
 				let
-				    Source = Sql.Databases("."),
-				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
-				    dbo_DimScenario = AdventureWorksDW2022{[Schema="dbo",Item="DimScenario"]}[Data]
+				  Source = Sql.Database(ServerName, DatabaseName),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "DimScenario"]}[Data]
 				in
-				    dbo_DimScenario
+				  #"Navigation 1"
 

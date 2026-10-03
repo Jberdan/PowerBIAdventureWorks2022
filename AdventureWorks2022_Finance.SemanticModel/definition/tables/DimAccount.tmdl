@@ -100,26 +100,42 @@ table DimAccount
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Root Account' =
+	column RootAccount =
 			
-			VAR RootKey =
+			VAR RootAccountKey =
 			    PATHITEM(DimAccount[AccountHierarchyPath],1,INTEGER)
 			RETURN
 			    LOOKUPVALUE(
 			        DimAccount[AccountDescription],
-			        DimAccount[AccountKey],RootKey
+			        DimAccount[AccountKey],RootAccountKey
 			    )
 		lineageTag: 2cbbc791-4a92-4146-a85d-328b12f7cb54
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
+	column CustomMembers
+		dataType: string
+		lineageTag: 1c76009d-35b1-4453-ba49-f8ce373e3e8f
+		summarizeBy: none
+		sourceColumn: CustomMembers
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomMemberOptions
+		dataType: string
+		lineageTag: 36541ad4-ece5-476c-83fd-8313880f57ab
+		summarizeBy: none
+		sourceColumn: CustomMemberOptions
+
+		annotation SummarizationSetBy = Automatic
+
 	hierarchy 'AccountCodeAlternateKey Hierarchy 2'
 		lineageTag: 2c08a603-03bf-4be6-bede-db8e82d6ac32
 
-		level 'Root Account'
+		level RootAccount
 			lineageTag: 22db7a13-828b-4d1c-85e5-82b57acd6c55
-			column: 'Root Account'
+			column: RootAccount
 
 		level ParentAccountDescription
 			lineageTag: fb076d30-6381-4223-880a-e70a8ffd3461
@@ -137,12 +153,10 @@ table DimAccount
 		mode: import
 		source =
 				let
-				    Source = Sql.Databases("."),
-				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
-				    dbo_DimAccount = AdventureWorksDW2022{[Schema="dbo",Item="DimAccount"]}[Data],
-				    #"Removed Columns" = Table.RemoveColumns(dbo_DimAccount,{"CustomMemberOptions", "CustomMembers"})
+				  Source = Sql.Database(ServerName, DatabaseName),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "DimAccount"]}[Data]
 				in
-				    #"Removed Columns"
+				  #"Navigation 1"
 
 	annotation PBI_NavigationStepName = Navigation
 

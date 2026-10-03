@@ -141,16 +141,46 @@ table DimDate
 
 		annotation SummarizationSetBy = Automatic
 
+	column SpanishDayNameOfWeek
+		dataType: string
+		lineageTag: 3acc7434-8d33-438c-b87c-03cd117f58e0
+		summarizeBy: none
+		sourceColumn: SpanishDayNameOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchDayNameOfWeek
+		dataType: string
+		lineageTag: 9bf8d412-32d9-4cbd-979b-9f3741965379
+		summarizeBy: none
+		sourceColumn: FrenchDayNameOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column SpanishMonthName
+		dataType: string
+		lineageTag: fbf45758-007c-428d-b211-654d945a7ec5
+		summarizeBy: none
+		sourceColumn: SpanishMonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FrenchMonthName
+		dataType: string
+		lineageTag: 01318ce5-39d3-4a6b-a6ff-c3d5f5802309
+		summarizeBy: none
+		sourceColumn: FrenchMonthName
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimDate = m
 		mode: import
 		source =
 				let
-				    Source = Sql.Databases("."),
-				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
-				    dbo_DimDate = AdventureWorksDW2022{[Schema="dbo",Item="DimDate"]}[Data],
-				    #"Removed Columns" = Table.RemoveColumns(dbo_DimDate,{"SpanishDayNameOfWeek", "FrenchDayNameOfWeek", "SpanishMonthName", "FrenchMonthName"})
+				  Source = Sql.Database(ServerName, DatabaseName),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "DimDate"]}[Data]
 				in
-				    #"Removed Columns"
+				  #"Navigation 1"
 
 	annotation PBI_NavigationStepName = Navigation
 

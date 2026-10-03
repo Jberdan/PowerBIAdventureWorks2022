@@ -44,25 +44,14 @@ table DimOrganization
 
 		annotation SummarizationSetBy = Automatic
 
-	column OrganizationHierarchyPath =
+	column ParentOrganizatinName =
 			
-			PATH (
-			    DimOrganization[OrganizationKey],
-			    DimOrganization[ParentOrganizationKey]
+			LOOKUPVALUE(
+			    DimOrganization[OrganizationName],
+			    DimOrganization[OrganizationKey],DimOrganization[ParentOrganizationKey]
 			)
-		lineageTag: 1a2b2418-3124-4b11-8c1a-1cbb996b19b9
+		lineageTag: a49a8374-32e8-459c-a7f1-e9efd9f69684
 		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
-
-	column OrganizationHierarchyLevel = ```
-			
-			PATHLENGTH ( DimOrganization[OrganizationHierarchyPath] )
-			
-			```
-		formatString: 0
-		lineageTag: bef9feb4-e0ee-4d89-a777-448d3c531d9c
-		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 
@@ -70,9 +59,8 @@ table DimOrganization
 		mode: import
 		source =
 				let
-				    Source = Sql.Databases("."),
-				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
-				    dbo_DimOrganization = AdventureWorksDW2022{[Schema="dbo",Item="DimOrganization"]}[Data]
+				  Source = Sql.Database(ServerName, DatabaseName),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "DimOrganization"]}[Data]
 				in
-				    dbo_DimOrganization
+				  #"Navigation 1"
 

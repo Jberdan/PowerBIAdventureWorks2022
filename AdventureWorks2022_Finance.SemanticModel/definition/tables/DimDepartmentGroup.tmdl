@@ -47,13 +47,55 @@ table DimDepartmentGroup
 
 		annotation SummarizationSetBy = Automatic
 
+	column RootDepartment =
+			
+			VAR RootDepartmentKey =
+			    PATHITEM(DimDepartmentGroup[DepartmentHierarchyPath],1,INTEGER)
+			RETURN
+			    LOOKUPVALUE(DimDepartmentGroup[DepartmentGroupName],
+			    DimDepartmentGroup[DepartmentGroupKey],RootDepartmentKey
+			    )
+		lineageTag: 8bd120cc-56b5-40c6-800b-2adf08db7c68
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentDepartmentName =
+			
+			LOOKUPVALUE(
+			    DimDepartmentGroup[DepartmentGroupName],
+			    DimDepartmentGroup[DepartmentGroupKey],DimDepartmentGroup[ParentDepartmentGroupKey]
+			)
+		lineageTag: a71bc006-7b75-442f-bda2-7d1feb17d603
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'DepartmentGroupKey Hierarchy'
+		lineageTag: 50a7af01-da06-4eb9-ac7a-d504a2613893
+
+		level RootDepartment
+			lineageTag: fc98b3a7-8120-4cb2-9638-133b967b9440
+			column: RootDepartment
+
+		level ParentDepartmentName
+			lineageTag: b9b90821-443c-46c8-9c6b-5c4956b9e7cc
+			column: ParentDepartmentName
+
+		level DepartmentGroupName
+			lineageTag: 4511e496-4148-4ee6-aa08-7d61a5a19d40
+			column: DepartmentGroupName
+
+		level DepartmentHierarchyLevel
+			lineageTag: 9eed6e26-52fa-45d3-b2a7-ad4209dd8f30
+			column: DepartmentHierarchyLevel
+
 	partition DimDepartmentGroup = m
 		mode: import
 		source =
 				let
-				    Source = Sql.Databases("."),
-				    AdventureWorksDW2022 = Source{[Name="AdventureWorksDW2022"]}[Data],
-				    dbo_DimDepartmentGroup = AdventureWorksDW2022{[Schema="dbo",Item="DimDepartmentGroup"]}[Data]
+				  Source = Sql.Database(ServerName, DatabaseName),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "DimDepartmentGroup"]}[Data]
 				in
-				    dbo_DimDepartmentGroup
+				  #"Navigation 1"
 

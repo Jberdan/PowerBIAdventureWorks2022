@@ -1,0 +1,27 @@
+table CommonProgramMeasures
+	lineageTag: d1452426-efb4-4ce5-bd02-c119e9e72c90
+
+	measure MaxAccountHierarchyDepth =
+			
+			CALCULATE(
+			    MAX(DimAccount[AccountHierarchyLevel]),
+			    ALL(DimAccount)
+			)
+		formatString: 0
+		lineageTag: 206e71a5-e309-43bd-8d9f-3bd37fc83390
+
+	column Column
+		formatString: 0
+		lineageTag: 14edb155-756f-4552-abf9-1b9032967576
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CommonProgramMeasures = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 619ca0905f0249fca587591a762c2827
+

@@ -9,7 +9,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["DimAccount","DimCurrency","DimDate","DimDepartmentGroup","DimOrganization","DimScenario","FactFinance","DimCurrencyRate"]
+annotation PBI_QueryOrder = ["DimAccount","DimCurrency","DimDate","DimDepartmentGroup","DimOrganization","DimScenario","FactFinance","DimCurrencyRate","ServerName","DatabaseName"]
 
 annotation PBI_ProTooling = ["CopilotTooling","DevMode","TMDLView_Desktop","DaxQueryView_Desktop"]
 
@@ -24,6 +24,9 @@ ref table DimScenario
 ref table FactFinance
 ref table MeasuresFinance
 ref table DimCurrencyRate
+ref table CommonProgramMeasures
+ref table LocalDateTable_ff5e3bc0-4eb1-461f-b3d0-35e80beb2b1b
+ref table LocalDateTable_dc90d3a5-f0e9-42f0-98e7-6383e8af3753
 
 ref cultureInfo en-US
 
